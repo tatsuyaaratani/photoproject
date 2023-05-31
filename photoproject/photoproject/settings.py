@@ -121,3 +121,21 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#madiaフォルダーの場所(BASE_DIR以下のmedia)を登録
+
+MEDIA_ROOT = OS.path.join(BASE_DIR,'media')
+#mediaのURLを登録
+MEDIA_URL = '/media/'
+#イメージのフィールド1
+image1 = models.ImageField(
+    verbose_name='イメージ1', #フィールドのタイトル
+    upload_to = 'photos'      #MEDIA_ROOT以下のphotosにファイルを保存
+)
+#イメージのフィールド2
+image2 = models.ImageField(
+    verbose_name='イメージ2', #フィールドのタイトル
+    upload_to = 'photos',    #MEDIA_ROOT以下のphotosにファイルを保存
+    blank=True,              #フィールド値の設定は必須でない
+    null=True                #データベースにnullが保存されることを許容
+)
